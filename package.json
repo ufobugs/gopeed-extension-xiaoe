@@ -1,0 +1,11 @@
+{
+  "name": "gopeed-extension-xiaoe",
+  "version": "0.1.6",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/core.js && node --check src/index.js && node --check scripts/build.mjs",
+    "build": "node scripts/build.mjs"
+  }
+}

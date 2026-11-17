@@ -1,0 +1,90 @@
+{
+  "name": "xiaoe",
+  "author": "ufobugs",
+  "title": "小鹅通课程",
+  "description": "下载本人有权访问的小鹅通专栏和视频，支持课时选择及 Gopeed 原生 HLS",
+  "version": "0.1.6",
+  "icon": "icon.svg",
+  "scripts": [
+    {
+      "event": "onResolve",
+      "match": {
+        "urls": ["https://*.pc.xiaoe-tech.com/*", "https://*.h5.xiaoeknow.com/*", "https://*.h5.xeknow.com/*"]
+      },
+      "entry": "dist/index.js"
+    },
+    {
+      "event": "onStart",
+      "match": {
+        "labels": ["ufobugs@xiaoe"]
+      },
+      "entry": "dist/index.js"
+    },
+    {
+      "event": "onError",
+      "match": {
+        "labels": ["ufobugs@xiaoe"]
+      },
+      "entry": "dist/index.js"
+    }
+  ],
+  "settings": [
+    {
+      "name": "apiHost",
+      "title": "登录店铺/API 域名",
+      "type": "string",
+      "value": "",
+      "description": "填写获取 Cookie 的实际店铺 API 域名，如 appxxx.pc.xiaoe-tech.com。必须与课程属于同一 app_id，Cookie 仅发给此主机。"
+    },
+    {
+      "name": "cookie",
+      "title": "店铺 Cookie",
+      "type": "string",
+      "value": "",
+      "description": "在本人能播放课程的店铺页面，从目录或视频详情请求复制完整 Cookie；学习中心 Cookie 不等于店铺 Cookie。"
+    },
+    {
+      "name": "adapter",
+      "title": "目录/播放接口",
+      "type": "string",
+      "value": "web",
+      "options": [
+        {
+          "label": "当前网页 business_go.column.items（JSON）",
+          "value": "web"
+        },
+        {
+          "label": "专栏 column.items（默认）",
+          "value": "original"
+        },
+        {
+          "label": "PC e_course",
+          "value": "pc"
+        }
+      ]
+    },
+    {
+      "name": "maxPages",
+      "title": "每个专栏最大页数",
+      "type": "number",
+      "value": 200
+    },
+    {
+      "name": "maxVideos",
+      "title": "最大视频数量",
+      "type": "number",
+      "value": 2000
+    },
+    {
+      "name": "resolveWorkers",
+      "title": "课时解析并发数",
+      "type": "number",
+      "value": 3,
+      "description": "范围1–4，默认3。网络或服务器限制时可调为1。"
+    }
+  ],
+  "homepage": "https://github.com/ufobugs/gopeed-extension-xiaoe",
+  "repository": {
+    "url": "https://github.com/ufobugs/gopeed-extension-xiaoe"
+  }
+}
